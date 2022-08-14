@@ -55,7 +55,7 @@ export default function Header() {
                   history.push(`/profile/${userLogin.taiKhoan}`);
                }}
                className="btn btn-primary mr-2">
-               Hello ! {userLogin.taiKhoan}
+               Hello {userLogin.taiKhoan}
             </button>
             <button
                onClick={() => {
