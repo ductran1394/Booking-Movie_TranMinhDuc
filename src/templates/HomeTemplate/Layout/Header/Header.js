@@ -45,6 +45,61 @@ export default function Header() {
                </li>
             </Fragment>
          );
+      } else {
+         if (userLogin.maLoaiNguoiDung === "QuanTri") {
+            return (
+               <Fragment>
+                  {" "}
+                  <button
+                     onClick={() => {
+                        history.push(`/profile/${userLogin.taiKhoan}`);
+                     }}
+                     className="btn btn-primary mr-2">
+                     Hello {userLogin.taiKhoan}
+                  </button>
+                  <button
+                     onClick={() => {
+                        history.push("/admin");
+                     }}
+                     className="btn btn-outline-warning mr-2">
+                     Quản trị
+                  </button>
+                  <button
+                     onClick={() => {
+                        localStorage.removeItem(USER_LOGIN);
+                        localStorage.removeItem(TOKEN);
+                        history.push("/home");
+                        window.location.reload();
+                     }}
+                     className="btn btn-outline-danger mr-2">
+                     Đăng xuất
+                  </button>
+               </Fragment>
+            );
+         } else {
+            return (
+               <Fragment>
+                  {" "}
+                  <button
+                     onClick={() => {
+                        history.push(`/profile/${userLogin.taiKhoan}`);
+                     }}
+                     className="btn btn-primary mr-2">
+                     Hello {userLogin.taiKhoan}
+                  </button>
+                  <button
+                     onClick={() => {
+                        localStorage.removeItem(USER_LOGIN);
+                        localStorage.removeItem(TOKEN);
+                        history.push("/home");
+                        window.location.reload();
+                     }}
+                     className="btn btn-outline-danger mr-2">
+                     Đăng xuất
+                  </button>
+               </Fragment>
+            );
+         }
       }
 
       return (
@@ -56,6 +111,16 @@ export default function Header() {
                }}
                className="btn btn-primary mr-2">
                Hello {userLogin.taiKhoan}
+            </button>
+            <button
+               onClick={() => {
+                  localStorage.removeItem(USER_LOGIN);
+                  localStorage.removeItem(TOKEN);
+                  history.push("/admin");
+                  window.location.reload();
+               }}
+               className="btn btn-outline-warning mr-2">
+               Quản trị
             </button>
             <button
                onClick={() => {
